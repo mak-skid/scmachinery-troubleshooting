@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    ログイン
+{% endblock %}
+
+{% block main %}
+    {% for message in get_flashed_messages() %}
+        <p>{{ message }}</p>
+    {% endfor %} 
+    <form action="/login" method="post">
+        <h1 class="h3 mb-3 fw-normal">ログイン</h1>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="ユーザー名" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="パスワード" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">ログイン</button>
+    </form>
+{% endblock %}

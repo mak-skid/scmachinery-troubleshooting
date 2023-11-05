@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS trouble_info (
+                username TEXT,
+                real_name TEXT, 
+                datetime DATE,
+                working_days INTEGER,
+                main_cetegory TEXT, 
+                machine_name TEXT PRIMARY,
+                part_name TEXT,
+                area TEXT 
+                place TEXT,  
+                detail TEXT, 
+                cause TEXT,
+                solution TEXT,
+                prevention TEXT,
+                others TEXT
+
+CREATE TABLE IF NOT EXISTS users (
+    user_name TEXT,
+    user_id INTEGER,
+    password_hash TEXT,
+    admin BOOLEAN
+)

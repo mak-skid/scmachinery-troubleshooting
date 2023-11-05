@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    アカウント管理
+{% endblock %}
+
+{% block main %}
+    <h2>{{ user["username"] }}のアカウント</h2><br>
+    <form action="/account" method="post">
+        <div class="mb-3">
+            <label class="mb-3">アカウントを削除するために、パスワードを入力してください</label>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="パスワード入力" type="password">
+        </div>
+        <button class="btn btn-primary" style="background-color: rgb(255, 0, 100); border-color: rgb(255, 0, 100);" type="submit">アカウント削除</button>
+    </form>
+
+{% endblock %}

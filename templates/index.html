@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h2>ようこそ、 {{ user }}さん</h2><br>
+    <form action="/" method="post">
+        <div class="mb-3">
+            <h3>トラブルを検索</h3>
+            <h4>機械大分類: </h4>
+            <select class="form-select form-select-sm mb-3 mx-auto w-auto" name="main_category" id="main_category">
+                <option value="" disabled selected>--選択してください--</option>
+                <option value="05 移動式クレーン">05 移動式クレーン</option>
+                <option value="06 エレベーター・リフト類">06 エレベーター・リフト類</option>
+                <option value="09 汎用機械">09 汎用機械</option>
+            </select>
+            <h4>機種: </h4><input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="machine_name" name="machine_name" placeholder="機種名" type="text"><br>
+            <h4>パーツ名等: </h4><input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="part_name" name="part_name" placeholder="パーツ名等" type="text"><br>
+        </div>
+        <button name="search" value="search" class="btn btn-primary" type="submit">検索</button>
+        <button name="all" value="all" class="btn btn-primary" type="submit">全表示</button>
+    </form>
+
+{% endblock %}

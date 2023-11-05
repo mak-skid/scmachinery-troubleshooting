@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    トラブル報告
+{% endblock %}
+
+{% block main %}
+    <h2>トラブルを報告</h2><br>
+        <form action="/report" method="post">
+            <div class="row g-3">
+            <div class="col-md-6">
+                <h3>報告者: {{ user["real_name"] }}</h3><br>
+                <h3>発生日時: </h3><input required autocomplete="off" autofocus class="form-control mx-auto w-auto" id="datetime" name="datetime" type="datetime-local"><br>
+                <h3>稼働日数: </h3><input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="working_days" name="working_days" type="number" min="1"><br>
+                <h3>機械大分類: </h3>
+                <select class="form-select mb-3 mx-auto w-auto" required name="main_category" id="main_category">
+                    <option value="" disabled selected>--選択してください--</option>
+                    <option value="05 移動式クレーン">05 移動式クレーン</option>
+                    <option value="06 エレベーター・リフト類">06 エレベーター・リフト類</option>
+                    <option value="09 汎用機械">09 汎用機械</option>
+                </select>
+                <h3>機種: </h3><input required autocomplete="off" autofocus class="form-control mx-auto w-auto" id="machine_name" name="machine_name" placeholder="機種名" type="text"><br>
+                <h3>パーツ名等: </h3><input required autocomplete="off" autofocus class="form-control mx-auto w-auto" id="part_name" name="part_name" placeholder="パーツ名等" type="text"><br>
+                <h3>対応センター: </h3>
+                <select class="form-select mb-3 mx-auto w-auto" required name="area" id="area">
+                    <option value="" disabled selected>--選択してください--</option>
+                    <option value="01 東京">01 東京</option>
+                    <option value="06 北陸">07 北陸</option>
+                    <option value="09 東北">08 東北</option>
+                </select>
+                <h3>現場名: </h3><input required autocomplete="off" autofocus class="form-control mx-auto w-auto" id="place" name="place" placeholder="現場名" type="text"><br>
+            </div>
+            <div class="col-md-6">
+                <h3>不具合内容: </h3><textarea required autocomplete="off" autofocus class="form-control" id="detail" name="detail" placeholder="不具合内容" type="text" rows="3"></textarea><br>
+                <h3>原因: </h3><textarea required autocomplete="off" autofocus class="form-control" id="cause" name="cause" placeholder="原因" type="text" rows="3"></textarea><br>
+                <h3>処置: </h3><textarea required autocomplete="off" autofocus class="form-control" id="solution" name="solution" placeholder="処置" type="text" rows="3"></textarea><br>
+                <h3>再発防止策: </h3><textarea required autocomplete="off" autofocus class="form-control" id="prevention" name="prevention" placeholder="再発防止策" type="text" rows="3"></textarea><br>
+                <h3>その他: </h3><textarea autocomplete="off" autofocus class="form-control" id="others" name="others" placeholder="備考等" type="text" rows="3"></textarea><br>
+            </div>
+            </div>
+            <button class="btn btn-primary" type="submit">報告</button>
+        </form>
+{% endblock %}

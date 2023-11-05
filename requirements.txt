@@ -1,0 +1,6 @@
+Flask
+Flask-session
+requests
+gunicorn
+firebase_admin
+Werkzeug

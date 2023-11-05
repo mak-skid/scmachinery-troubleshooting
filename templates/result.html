@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block main %}
+    <h2>検索結果</h2><br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>報告者</th>
+                <th>発生日時</th>
+                <th>稼働日数</th>
+                <th>機械大分類</th>
+                <th>機械名</th>
+                <th>パーツ名等</th>
+                <th>対応センター</th>
+                <th>現場名</th>
+                <th>不具合内容</th>
+                <th>原因</th>
+                <th>解決策</th>
+                <th>再発防止策</th>
+                <th>その他</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in query %}
+            <tr>
+                {% with r = row.to_dict() %}
+                <th>{{ r.real_name }}</th>
+                <th>{{ r.datetime }}</th>
+                <th>{{ r.working_days }}</th>
+                <th>{{ r.main_category }}</th>
+                <th>{{ r.machine_name }}</th>
+                <th>{{ r.part_name }}</th>
+                <th>{{ r.area }}</th>
+                <th>{{ r.place }}</th>
+                <th>{{ r.detail }}</th>
+                <th>{{ r.cause }}</th>
+                <th>{{ r.solution }}</th>
+                <th>{{ r.prevention }}</th>
+                <th>{{ r.others }}</th>
+                {% endwith %}
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
